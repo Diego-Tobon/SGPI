@@ -1,0 +1,33 @@
+﻿@model Usuario
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_LayoutSGPI";
+}
+
+<div class="container">
+    <div class="cuacenterL">
+        <form method="post">
+            <div>
+                <img class="usu" src="~/img/usu.png" />
+            </div>
+            <div class="formL">
+                <label for="usuario">Usuario</label>
+            </div>
+            <div class="formL">
+                <input asp-for="NumeroDocumento" type="text"/>
+            </div>
+            <div class="formL">
+                <label for="pass">Contraseña</label>
+            </div>
+            <div class="formL">
+                <input asp-for="Password" type="password"/>            
+            </div>
+            <div class="formL">
+                <a href="/Administrador/OlvidarContrasena">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="formL">
+                <button type="submit" class="btnLogin">Ingresar</button>
+            </div>
+        </form>
+    </div>
+</div>
