@@ -1,4 +1,4 @@
-﻿
+﻿@model Usuario
 @{
     ViewData["Title"] = "MenuAdmModificar";
     Layout = "_LayoutSGPI";
@@ -26,33 +26,37 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label for="name">Nombre</label>
-                        <input type="text" name="nombre" />
+                        <label for="name">Primer Nombre</label>
+                        <input asp-for="PrimerNombre" type="text"/>
                     </div>
                     <div class="col-md-4">
-                        <label for="priApel">Primer Apellido</label>
-                        <input type="text" name="priApel" />
-                    </div>
+                        <label for="name">Segundo Nombre</label>
+                        <input asp-for="SegundoNombre" type="text"/>
+                    </div>                    
                 </div>
             </div>
             <div class="cont1">
                 <div class="row">
                     <div class="col-md-4">
+                        <label for="priApel">Primer Apellido</label>
+                        <input asp-for="PrimerApellido" type="text"/>
+                    </div>
+                    <div class="col-md-4">
                         <label for="segApel">Segundo Apellido</label>
-                        <input type="text" name="segApel" />
+                        <input asp-for="SegundoApellido" type="text"/>
                     </div>
                     <div class="col-md-4">
                         <label for="doc">Número de Documento</label>
-                        <input type="text" name="numDoc" />
-                    </div>
-                    <div class="col-md-4">
-                        <label for="email">Correo</label>
-                        <input type="email" name="email" />
-                    </div>
+                        <input asp-for="NumeroDocumento" type="text"/>
+                    </div>                    
                 </div>
             </div>
             <div class="cont1">
                 <div class="row">
+                    <div class="col-md-4">
+                        <label for="email">Correo</label>
+                        <input asp-for="Email" type="email"/>
+                    </div>
                     <div class="col-md-4">
                         <label for="roll">Roll Usuario</label>
                         <select name="roll" id="roll">

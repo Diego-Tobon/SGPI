@@ -1,4 +1,4 @@
-﻿
+﻿@model Usuario
 @{
     ViewData["Title"] = "MenuCoordinadorHomologar";
     Layout = "_LayoutSGPI";
@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="doc">Número de Documento</label>
-                        <input type="text" name="numDoc" placeholder="Número de Documento" />
+                        <input asp-for="NumeroDocumento" type="text"/>
                     </div>
                     <div class="col-md-4">
                         <input type="submit" name="buscar" value="Buscar" class="buscar-submit" />
@@ -39,17 +39,21 @@
 
             <div class="cont1">
                 <div class="row">
-                    <div class="col-md-4">
-                        <label for="name">Nombre</label>
-                        <input type="text" name="nombre" placeholder="" />
+                    <div class="col-md-3">
+                        <label for="name">Primer Nombre</label>
+                        <input asp-for="PrimerNombre" type="text" />
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <label for="name">Segundo Nombre</label>
+                        <input asp-for="SegundoNombre" type="text" />
+                    </div>
+                    <div class="col-md-3">
                         <label for="priApel">Primer Apellido</label>
-                        <input type="text" name="priApel" placeholder="" />
+                        <input asp-for="PrimerApellido" type="text" />
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label for="segApel">Segundo Apellido</label>
-                        <input type="text" name="segApel" placeholder="" />
+                        <input asp-for="SegundoApellido" type="text" />
                     </div>
                 </div>
             </div>
@@ -58,7 +62,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <label for="prog">Programa</label>
-                        <input type="text" name="prog" placeholder="" />
+                        <input type="text"/>
                     </div>
                 </div>
             </div>

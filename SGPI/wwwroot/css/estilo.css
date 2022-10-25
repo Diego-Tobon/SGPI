@@ -123,14 +123,14 @@
 }
 
 .btnsHo {
-    top: 120px;
-    left: 570px;
+    top: 60px;
+    left: 625px;
     position: relative;
 }
 
 .btnsEn {
-    top: 50px;
-    left: 590px;
+    top: -15px;
+    left: 660px;
     position: relative;
 }
 
@@ -141,8 +141,8 @@
 }
 
 .btnsAc {
-    top: 30px;
-    left: 640px;
+    top: -44px;
+    left: 730px;
     position: relative;
 }
 
