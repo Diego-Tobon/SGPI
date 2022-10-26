@@ -16,13 +16,7 @@
             <div class="row">
                 <div class="col-md-4">  
                     <label for="identificacion">Tipo Identificación</label>
-                
-                    <select name="identificacion" id="identificacion">
-                        <option value="Cedula Ciudadania">Cedula Ciudadania</option>
-                        <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-                        <option value="Cedula de Extranjeria">Cedula de Extranjeria</option>
-                        <option value="Pasaporte">Pasaporte</option>
-                    </select>
+                    @Html.DropDownList("IdDoc", new SelectList(ViewBag.documento, "IdDoc", "TipoDocumento"), new {@class="form-control dropdown"})
                 </div>
                 <div class="col-md-4">
                     <label for="doc">Número de Documento</label>
@@ -33,34 +27,41 @@
                 </div>
             </div>
             <div class="cont2">
+                @if (Model != null)
+                {
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Pri. Apellido</th>
-                            <th>Seg. Apellido</th>
-                            <th>Tipo Ident.</th>
-                            <th>Num. Documento</th>
-                            <th>Genero</th>
-                            <th>E-mail</th>
-                            <th>Programa</th>
-                            <th>Rol</th>
+                            <th>@Html.DisplayNameFor(model=>model.PrimerNombre)</th>
+                            <th>@Html.DisplayNameFor(model=>model.SegundoNombre)</th>
+                            <th>@Html.DisplayNameFor(model=>model.PrimerApellido)</th>
+                            <th>@Html.DisplayNameFor(model=>model.SegundoApellido)</th>
+                            <th>@Html.DisplayNameFor(model=>model.IdDoc)</th>
+                            <th>@Html.DisplayNameFor(model=>model.NumeroDocumento)</th>
+                            <th>@Html.DisplayNameFor(model=>model.IdGenero)</th>
+                            <th>@Html.DisplayNameFor(model=>model.Email)</th>
+                            <th>@Html.DisplayNameFor(model=>model.IdPrograma)</th>
+                            <th>@Html.DisplayNameFor(model=>model.IdRol)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>@Html.DisplayFor(modelItem=>modelItem.PrimerNombre)</td>
+                            <td>@Html.DisplayNameFor(modelItem=>modelItem.SegundoNombre)</td>
+                            <td>@Html.DisplayNameFor(modelItem=>modelItem.PrimerApellido)</td>
+                            <td>@Html.DisplayNameFor(modelItem=>modelItem.SegundoApellido)</td>
+                            <td>@Html.DisplayNameFor(modelItem=>modelItem.IdDoc)</td>
+                            <td>@Html.DisplayNameFor(modelItem=>modelItem.NumeroDocumento)</td>
+                            <td>@Html.DisplayNameFor(modelItem=>modelItem.IdGenero)</td>
+                            <td>@Html.DisplayNameFor(modelItem=>modelItem.Email)</td>
+                            <td>@Html.DisplayNameFor(modelItem=>modelItem.IdPrograma)</td>
+                            <td>@Html.DisplayNameFor(modelItem=>modelItem.IdRol)</td>
+                            <td>@Html.ActionLink("Edit", "Edit", new{IdUsuario=Model.IdUsuario})</td>
                         </tr>
                     </tbody>
                 </table>
+   
+                }
             </div>
             
 

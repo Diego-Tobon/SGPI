@@ -46,14 +46,48 @@ namespace SGPI.Controllers
             return View();
         }
 
+        
+
         public IActionResult MenuRegistro()
         {
+            ViewBag.genero = context.Generos.ToList();
+            ViewBag.rol = context.Rols.ToList();
+            ViewBag.documento = context.Documentos.ToList();
+            ViewBag.programa = context.Programas.ToList();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult MenuRegistro(Usuario usuario)
+        {
+            context.Usuarios.Add(usuario);
+            context.SaveChanges();
+
+            ViewBag.genero = context.Generos.ToList();
+            ViewBag.rol = context.Rols.ToList();
+            ViewBag.documento = context.Documentos.ToList();
+            ViewBag.programa = context.Programas.ToList();
+            return View();
+        }
+        public IActionResult MenuAdmBuscar()
+        {
+            ViewBag.documento = context.Documentos.ToList();
             return View();
         }
 
-        public IActionResult MenuAdmBuscar()
+        [HttpPost]
+        public IActionResult MenuAdmBuscar(Usuario usuario)
         {
-            return View();
+            var us = context.Usuarios
+                .Where(u => u.NumeroDocumento == usuario.NumeroDocumento
+                && u.IdDoc == usuario.IdDoc).FirstOrDefault();
+
+            if(us != null)
+                return View(us);
+            else
+            {
+                ViewBag.documento = context.Documentos.ToList();
+                return View();
+            }
         }
 
         public IActionResult MenuAdmModificar()
