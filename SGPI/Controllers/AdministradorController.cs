@@ -21,7 +21,7 @@ namespace SGPI.Controllers
             if (usuario != null)
             {
                 if(usuario.IdRol == 1){ 
-                    return View("MenuAdmBuscar");
+                    return Redirect("Administrador/MenuAdmBuscar");
                 }
                 else if(usuario.IdRol == 2){
                     return Redirect("Coordinador/MenuCoordinadorBuscar");
@@ -68,6 +68,7 @@ namespace SGPI.Controllers
             ViewBag.programa = context.Programas.ToList();
             return View();
         }
+
         public IActionResult MenuAdmBuscar()
         {
             ViewBag.documento = context.Documentos.ToList();
@@ -81,8 +82,13 @@ namespace SGPI.Controllers
                 .Where(u => u.NumeroDocumento == usuario.NumeroDocumento
                 && u.IdDoc == usuario.IdDoc).FirstOrDefault();
 
-            if(us != null)
+            if (us != null)
+            {
+
+                ViewBag.documento = context.Documentos.ToList();
+
                 return View(us);
+            }
             else
             {
                 ViewBag.documento = context.Documentos.ToList();
@@ -90,11 +96,31 @@ namespace SGPI.Controllers
             }
         }
 
-        public IActionResult MenuAdmModificar()
+        public IActionResult MenuAdmModificar(int ? IdUsuario)
         {
-            return View();
+            Usuario usuario = context.Usuarios.Find(IdUsuario);
+            if (usuario != null)
+            {
+                return View(usuario);
+            }
+            else
+                return Redirect("Administrador/MenuAdmBuscar"); 
         }
 
+
+        [HttpPost]
+        public IActionResult MenuAdmModificar(Usuario user)
+        {
+            context.Update(user);
+            context.SaveChanges();
+            return Redirect("Administrador/MenuAdmBuscar");
+        }
+        public IActionResult Delete(Usuario usuario)
+        {
+            context.Remove(usuario);
+            context.SaveChanges();
+            return Redirect("MenuAdmBuscar");
+        }
         public IActionResult Reportes()
         {
             return View();

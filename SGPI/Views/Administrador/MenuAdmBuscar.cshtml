@@ -5,7 +5,7 @@
 }
 <div class="container">
     <nav class="topnavA">
-        <a  href="~/Administrador/MenuRegistro">Crear Usuario</a>
+        <a href="~/Administrador/MenuRegistro">Crear Usuario</a>
         <a class="active" href="~/Administrador/MenuAdmBuscar">Buscar Usuario</a>
         <a href="~/Administrador/Reportes">Reportes</a>
         <button class="btnLogUpA">Cerrar Sesión</button>
@@ -13,61 +13,50 @@
 
     <div class="cuacenterTb">
         <div class="busT">
-            <div class="row">
-                <div class="col-md-4">  
-                    <label for="identificacion">Tipo Identificación</label>
-                    @Html.DropDownList("IdDoc", new SelectList(ViewBag.documento, "IdDoc", "TipoDocumento"), new {@class="form-control dropdown"})
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="identificacion">Tipo Identificación</label>
+                        @Html.DropDownList("IdDoc", new SelectList(ViewBag.documento, "IdDoc", "TipoDocumento"), new {@class="form-control dropdown"})
+                    </div>
+                    <div class="col-md-4">
+                        <label for="doc">Número de Documento</label>
+                        <input asp-for="NumeroDocumento" type="text" />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" name="buscar" value="Buscar" class="buscar-submit" />
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <label for="doc">Número de Documento</label>
-                    <input asp-for="NumeroDocumento" type="text"/>
-                </div>
-                <div class="col-md-4">
-                    <input type="submit" name="buscar" value="Buscar" class="buscar-submit" />
-                </div>
-            </div>
+            </form>
             <div class="cont2">
                 @if (Model != null)
                 {
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>@Html.DisplayNameFor(model=>model.PrimerNombre)</th>
-                            <th>@Html.DisplayNameFor(model=>model.SegundoNombre)</th>
-                            <th>@Html.DisplayNameFor(model=>model.PrimerApellido)</th>
-                            <th>@Html.DisplayNameFor(model=>model.SegundoApellido)</th>
-                            <th>@Html.DisplayNameFor(model=>model.IdDoc)</th>
-                            <th>@Html.DisplayNameFor(model=>model.NumeroDocumento)</th>
-                            <th>@Html.DisplayNameFor(model=>model.IdGenero)</th>
-                            <th>@Html.DisplayNameFor(model=>model.Email)</th>
-                            <th>@Html.DisplayNameFor(model=>model.IdPrograma)</th>
-                            <th>@Html.DisplayNameFor(model=>model.IdRol)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem=>modelItem.PrimerNombre)</td>
-                            <td>@Html.DisplayNameFor(modelItem=>modelItem.SegundoNombre)</td>
-                            <td>@Html.DisplayNameFor(modelItem=>modelItem.PrimerApellido)</td>
-                            <td>@Html.DisplayNameFor(modelItem=>modelItem.SegundoApellido)</td>
-                            <td>@Html.DisplayNameFor(modelItem=>modelItem.IdDoc)</td>
-                            <td>@Html.DisplayNameFor(modelItem=>modelItem.NumeroDocumento)</td>
-                            <td>@Html.DisplayNameFor(modelItem=>modelItem.IdGenero)</td>
-                            <td>@Html.DisplayNameFor(modelItem=>modelItem.Email)</td>
-                            <td>@Html.DisplayNameFor(modelItem=>modelItem.IdPrograma)</td>
-                            <td>@Html.DisplayNameFor(modelItem=>modelItem.IdRol)</td>
-                            <td>@Html.ActionLink("Edit", "Edit", new{IdUsuario=Model.IdUsuario})</td>
-                        </tr>
-                    </tbody>
-                </table>
-   
-                }
-            </div>
-            
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model=>model.PrimerNombre)</th>
+                                <th>@Html.DisplayNameFor(model=>model.SegundoNombre)</th>
+                                <th>@Html.DisplayNameFor(model=>model.PrimerApellido)</th>
+                                <th>@Html.DisplayNameFor(model=>model.SegundoApellido)</th>
+                                <th>@Html.DisplayNameFor(model=>model.NumeroDocumento)</th>
+                                <th>@Html.DisplayNameFor(model=>model.Email)</th>
 
-            <div class="btns">
-                <button href="~/Administrador/MenuAdmModificar" class="btnCS">Modificar Usuario</button>
-                <button class="btnCS">Eliminar Usuario</button>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem=>modelItem.PrimerNombre)</td>
+                                <td>@Html.DisplayNameFor(modelItem=>modelItem.SegundoNombre)</td>
+                                <td>@Html.DisplayNameFor(modelItem=>modelItem.PrimerApellido)</td>
+                                <td>@Html.DisplayNameFor(modelItem=>modelItem.SegundoApellido)</td>
+                                <td>@Html.DisplayNameFor(modelItem=>modelItem.NumeroDocumento)</td>
+                                <td>@Html.DisplayNameFor(modelItem=>modelItem.Email)</td>
+                                <td>@Html.ActionLink("MenuAdmModificar", "MenuAdmModificar", new{IdUsuario=Model.IdUsuario})</td>
+                                <td>@Html.ActionLink("Delete", "Delete", new{IdUsuario=Model.IdUsuario}, new{onclick="return confirm('¿Esta seguro de eliminar?')"})</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
             </div>
         </div>
     </div>
