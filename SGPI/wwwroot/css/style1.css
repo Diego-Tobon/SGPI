@@ -265,7 +265,7 @@ input:focus {
     color: #000000;
     transition: 250ms background ease-in;
     position: relative;
-    top: 10px;
+    top: 105px;
     left: 60px;
     border-radius: 10px;
 }

@@ -9,7 +9,10 @@
         <a href="~/Administrador/MenuRegistro">Crear Usuario</a>
         <a href="~/Administrador/MenuAdmBuscar">Buscar Usuario</a>
         <a class="active" href="~/Administrador/Reportes">Reportes</a>
-        <button class="btnLogUpA">Cerrar Sesión</button>
+        <form action="../Administrador/Login">
+            <button class="btnLogUpA">Cerrar Sesión</button>
+        </form>
+        
     </nav>
 
     <div class="cuacenterTb">
@@ -18,13 +21,6 @@
                 <div class="row">
                     <div class="col-md-4">
                         <label for="identificacion">Tipo Identificación</label>
-
-                        <select name="identificacion" id="identificacion">
-                            <option value="Cedula Ciudadania">Cedula Ciudadania</option>
-                            <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-                            <option value="Cedula de Extranjeria">Cedula de Extranjeria</option>
-                            <option value="Pasaporte">Pasaporte</option>
-                        </select>
                     </div>
                     <div class="col-md-4">
                         <label for="doc">Número de Documento</label>
@@ -35,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="cont1">
+@*            <div class="cont1">
                 <div class="row">
                     <div class="col-md-8">
                         <label for="programa">Programa</label>
@@ -46,12 +42,12 @@
                         </select>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <div class="cont2">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
+                            <th></th>
                             <th>Pri. Apellido</th>
                             <th>Seg. Apellido</th>
                             <th>Tipo Ident.</th>
