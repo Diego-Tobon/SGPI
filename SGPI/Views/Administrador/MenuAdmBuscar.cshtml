@@ -49,11 +49,11 @@
                         <tbody>
                             <tr>
                                 <td>@Html.DisplayFor(modelItem=>modelItem.PrimerNombre)</td>
-                                <td>@Html.DisplayNameFor(modelItem=>modelItem.SegundoNombre)</td>
-                                <td>@Html.DisplayNameFor(modelItem=>modelItem.PrimerApellido)</td>
-                                <td>@Html.DisplayNameFor(modelItem=>modelItem.SegundoApellido)</td>
-                                <td>@Html.DisplayNameFor(modelItem=>modelItem.NumeroDocumento)</td>
-                                <td>@Html.DisplayNameFor(modelItem=>modelItem.Email)</td>
+                                <td>@Html.DisplayFor(modelItem=>modelItem.SegundoNombre)</td>
+                                <td>@Html.DisplayFor(modelItem=>modelItem.PrimerApellido)</td>
+                                <td>@Html.DisplayFor(modelItem=>modelItem.SegundoApellido)</td>
+                                <td>@Html.DisplayFor(modelItem=>modelItem.NumeroDocumento)</td>
+                                <td>@Html.DisplayFor(modelItem=>modelItem.Email)</td>
                                 <td>@Html.ActionLink("MenuAdmModificar", "MenuAdmModificar", new{IdUsuario=Model.IdUsuario})</td>
                                 <td>@Html.ActionLink("Delete", "Delete", new{IdUsuario=Model.IdUsuario}, new{onclick="return confirm('¿Esta seguro de eliminar?')"})</td>
                             </tr>

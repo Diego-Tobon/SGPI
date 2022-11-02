@@ -86,7 +86,6 @@ namespace SGPI.Controllers
             {
 
                 ViewBag.documento = context.Documentos.ToList();
-
                 return View(us);
             }
             else
@@ -101,6 +100,10 @@ namespace SGPI.Controllers
             Usuario usuario = context.Usuarios.Find(IdUsuario);
             if (usuario != null)
             {
+                ViewBag.genero = context.Generos.ToList();
+                ViewBag.rol = context.Rols.ToList();
+                ViewBag.documento = context.Documentos.ToList();
+                ViewBag.programa = context.Programas.ToList();
                 return View(usuario);
             }
             else
@@ -113,7 +116,12 @@ namespace SGPI.Controllers
         {
             context.Update(user);
             context.SaveChanges();
-            return Redirect("Administrador/MenuAdmBuscar");
+
+            ViewBag.genero = context.Generos.ToList();
+            ViewBag.rol = context.Rols.ToList();
+            ViewBag.documento = context.Documentos.ToList();
+            ViewBag.programa = context.Programas.ToList();
+            return Redirect("MenuAdmBuscar");
         }
         public IActionResult Delete(Usuario usuario)
         {
